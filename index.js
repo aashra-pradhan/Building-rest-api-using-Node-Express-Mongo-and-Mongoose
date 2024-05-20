@@ -28,6 +28,17 @@ mongoose
   .connect(
     "mongodb+srv://aashrapradhan68:xj2wlQU02VUUI2W3@aashradb.pkpjox1.mongodb.net/NodeAPI?retryWrites=true&w=majority&appName=AASHRADB"
   )
+  //yo mongodb+srv://aashrapradhan68.... is mongodb connection string, it is a URI that is used to connect to the database
+  //here aashrapradhan68 is the username and xj2wlQU02VUUI2W3 is the password of my mongodb account, ani aashradb is the name of the database
+  //ani NodeAPI is the collection name jun maile afaile random name deko etai...
+
+  //URI is a string of characters that unambiguously identifies a particular resource. To guarantee uniqueness,
+  //each resource must have a unique identifier.
+
+  //DIFFERENCE between URI and URL is that URL is a subset of URI, URL is a type of URI that identifies a resource via a network connection.
+  //And URI is a string of characters used to identify a resource. URL is a type of URI, but a URI is not always a URL because a URI can be a name,
+  // locator, or both.But, a URL is always a locator.
+
   .then(() => {
     console.log("Connected TO THE DB!");
     app.listen(port, () => {
