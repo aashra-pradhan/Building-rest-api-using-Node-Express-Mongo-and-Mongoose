@@ -2,16 +2,26 @@
 
 import express from "express";
 import mongoose from "mongoose";
-
-//initializing the app
-const app = express();
+// import Product from "./models/product.model.js";
+import productRoute from "./routes/product.route.js";
 
 //euta port allocate gareko server lai
 const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello from Node API!");
-});
+//initializing the app
+const app = express();
+
+// middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// routes
+app.use("/api/products", productRoute);
+
+//initial test
+// app.get("/", (req, res) => {
+//   res.send("Hello from Node API!");
+// });
 
 //whatever client side sends is req and whatever server on port 3000(as of now) sends is res
 
