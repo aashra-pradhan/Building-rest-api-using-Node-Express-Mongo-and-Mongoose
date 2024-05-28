@@ -51,8 +51,8 @@ const MONGODB_URL = process.env.MONGODB_URL;
 
 mongoose
   .connect(MONGODB_URL)
-  //yo mongodb+srv://aashrapradhan68.... is mongodb connection string, it is a URI that is used to connect to the database
-  //here aashrapradhan68 is the username and xj2wlQU02VUUI2W3 is the password of my mongodb account, ani aashradb is the name of the database
+  //yo .env file ma store gareko MONGODB_URL ma bhayeko, (for eg.:) mongodb+srv://johnsmith123:password123@johndb.pkpjox1.mongodb.net/NodeAPI?retryWrites=true&w=majority&appName=JOHNDB is mongodb connection string, it is a URI that is used to connect to the database
+  //here johnsmith123 is the username and password123 is the password of my mongodb account, ani johndb is the name of the database
   //ani NodeAPI is the collection name jun maile afaile random name deko etai...
 
   //URI is a string of characters that unambiguously identifies a particular resource. To guarantee uniqueness,
