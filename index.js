@@ -4,9 +4,11 @@ import express from "express";
 import mongoose from "mongoose";
 // import Product from "./models/product.model.js";
 import productRoute from "./routes/product.route.js";
+import dotenv from "dotenv";
+import cors from "cors";
 
 //euta port allocate gareko server lai
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //initializing the app
 const app = express();
@@ -14,6 +16,16 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Enabling CORS for all origins, allowing all origins
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
+//dotenv configuration to use it in our application
+dotenv.config();
 
 // routes
 app.use("/api/products", productRoute);
@@ -34,10 +46,11 @@ app.use("/api/products", productRoute);
 
 //mongoose is a library that helps us connect to MongoDB database
 //connecting to the database
+
+const MONGODB_URL = process.env.MONGODB_URL;
+
 mongoose
-  .connect(
-    "mongodb+srv://aashrapradhan68:xj2wlQU02VUUI2W3@aashradb.pkpjox1.mongodb.net/NodeAPI?retryWrites=true&w=majority&appName=AASHRADB"
-  )
+  .connect(MONGODB_URL)
   //yo mongodb+srv://aashrapradhan68.... is mongodb connection string, it is a URI that is used to connect to the database
   //here aashrapradhan68 is the username and xj2wlQU02VUUI2W3 is the password of my mongodb account, ani aashradb is the name of the database
   //ani NodeAPI is the collection name jun maile afaile random name deko etai...
