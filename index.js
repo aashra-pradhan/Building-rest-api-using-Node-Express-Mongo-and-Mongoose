@@ -16,6 +16,9 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+//esto extended: false bhane ko ho cause, the value of the extended option is a boolean that tells the parser to use the classic encoding.
+//so form data is encoded in the URL, so we can use the querystring module to parse the URL-encoded data.
+//in simple words request body form data ko form ma pani halna milyo esto gare.
 
 // Enabling CORS for all origins, allowing all origins
 app.use(
