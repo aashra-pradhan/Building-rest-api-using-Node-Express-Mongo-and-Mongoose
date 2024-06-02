@@ -18,6 +18,7 @@ import Product from "../models/product.model.js";
 
 //if there is an error, we are sending a response with status code 500 and the error message
 //we set the status code by doing res.status(500) and send the message by doing res.json({message: error.message})
+//hamile res.send("msg"), garera ni pathauna milthyo response, but, json mai response pathaunu cha bhane chai we do, res.json()...
 //yaha the message that we send has to be in json format, so we are sending it as an object with a key "message" and the value as the error message
 //here we are using the error.message to get the error message from the error object that is thrown by the code inside the try block
 //Also we combined the two statements into one by chaining them with a dot operator i.e., res.status(500).json({message: error.message})
@@ -46,6 +47,9 @@ export const getProduct = async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Product.findById(id);
+    //here findById is a Mongoose method that retrieves a single document by its _id.
+    //the mongoose methods are used to interact with the database, here we are using the findById method to find a single document by its id
+    //other mongoose methods used in backend development are find, findOne, findByIdAndUpdate, findByIdAndDelete, etc.
     res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -55,6 +59,7 @@ export const getProduct = async (req, res) => {
 export const createProduct = async (req, res) => {
   try {
     const product = await Product.create(req.body);
+    //create is a Mongoose method that creates a new document in the collection.
     res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
