@@ -32,6 +32,9 @@ dotenv.config();
 
 // routes
 app.use("/api/products", productRoute);
+//app.use is a method in Express.js used to mount the specified middleware function(s) at the path which is being specified.
+//in simple words, we are telling the app to use the productRoute when the path is /api/products
+//so, when the client sends a request to /api/products, the app will use the productRoute to handle the request
 
 //initial test
 // app.get("/", (req, res) => {
